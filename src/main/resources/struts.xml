@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.action.excludePattern" value="/db/dyn/.*,/db/admin/.*,/db/stat/.*"/>
+	<constant name="struts.action.extension" value="html"/>
+	<constant name="struts.enable.SlashesInActionNames" value="true"/>
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<action name="">
+			<result>/jsp/home.jsp</result>
+		</action>
+		<action name="home">
+			<result>/jsp/home.jsp</result>
+		</action>
+		<action name="fruits-vegetables">
+			<result>/jsp/fruits-vegetables.jsp</result>
+		</action>
+		<action name="register">
+			<result>/jsp/register.jsp</result>
+		</action>
+		<action name="login">
+			<result>/jsp/login.jsp</result>
+		</action>
+		
+		<action name="detail/*/*" class="com.grocery.store.action.OfferDetailAction">
+            <param name="offerId">{1}</param>
+            <param name="offerName">{2}</param>
+            <result name="SUCCESS">/jsp/offer-detail.jsp</result>
+        </action>
+
+	</package>
+</struts>

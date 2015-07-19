@@ -1,0 +1,68 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>groceryStore</display-name>
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>arduinoReadServlet</servlet-name>
+		<servlet-class>com.grocery.store.servlet.ArduinoReadServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>checkDb</servlet-name>
+		<servlet-class>com.grocery.store.dao.DbConnectionCheck</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>browseOfferJson</servlet-name>
+		<servlet-class>com.grocery.store.servlet.BrowseOfferServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>offerInventoryJson</servlet-name>
+		<servlet-class>com.grocery.store.servlet.OfferInventoryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>offerDetailInventoryJson</servlet-name>
+		<servlet-class>com.grocery.store.servlet.OfferDetailInventoryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>addToCartSession</servlet-name>
+		<servlet-class>com.grocery.store.servlet.AddToCartSessionServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>arduinoReadServlet</servlet-name>
+		<url-pattern>/db/dyn/readArduino</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>checkDb</servlet-name>
+		<url-pattern>/db/admin/checkDB</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>browseOfferJson</servlet-name>
+		<url-pattern>/db/stat/browseOffersJson</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>offerInventoryJson</servlet-name>
+		<url-pattern>/db/dyn/offerInventoryJson</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>offerDetailInventoryJson</servlet-name>
+		<url-pattern>/db/dyn/offerDetailInventoryJson</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>addToCartSession</servlet-name>
+		<url-pattern>/db/dyn/addToCartSession</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
